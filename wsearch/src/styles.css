@@ -1,0 +1,6 @@
+@import 'bulma/css/bulma.min.css';
+
+.searchmatch {
+  font-weight: bold;
+  color: red;
+}
