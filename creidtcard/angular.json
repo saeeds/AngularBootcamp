@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "photos": {
+    "creidtcard": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/photos",
+            "outputPath": "dist/creidtcard",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "photos:build"
+            "browserTarget": "creidtcard:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "photos:build:production"
+              "browserTarget": "creidtcard:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "photos:build"
+            "browserTarget": "creidtcard:build"
           }
         },
         "test": {
@@ -110,18 +110,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "photos:serve"
+            "devServerTarget": "creidtcard:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "photos:serve:production"
+              "devServerTarget": "creidtcard:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "photos",
+  "defaultProject": "creidtcard",
   "cli": {
     "analytics": false
   }
