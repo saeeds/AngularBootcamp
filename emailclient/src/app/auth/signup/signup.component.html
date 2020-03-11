@@ -1,0 +1,41 @@
+<h3>Create an Account</h3>
+<form class="ui form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+  <!-- <div class="field">
+    <label>Username</label>
+    <input formControlName="username" />
+  </div> -->
+  <!-- {{authForm.get('username').errors | json}} -->
+  <app-input InputType="text" label="Username" [control]="authForm.get('username')"></app-input>
+  <app-input InputType="password" label="Password" [control]="authForm.get('password')"></app-input>
+  <!-- <div class="field">
+    <label>Password</label>
+    <input formControlName="password" />
+  </div> -->
+  <!-- {{authForm.get('password').errors | json}} -->
+  <app-input InputType="password" label="Password Confirmation" [control]="authForm.get('passwordConfirmation')">
+  </app-input>
+  <!-- <div class="field">
+    <label>Password Confirmation</label>
+    <input formControlName="passwordConfirmation" />
+  </div> -->
+  <!-- {{authForm.get('passwordConfirmation').errors | json}} -->
+
+  <div *ngIf="
+          authForm.errors &&
+          authForm.get('password').touched
+          &&authForm.get('passwordConfirmation').touched" class="ui red basic label">
+    <p *ngIf="authForm.errors.passwordsDontMatch">
+      Password and Password Confirmation must match
+    </p>
+    <p *ngIf="authForm.errors.noConnection">
+      No internet connection detected, faild to sign up
+    </p>
+    <p *ngIf="authForm.errors.unKnownError">
+      Faild to sign up
+    </p>
+  </div>
+  <div>
+    <button class="ui submit button primary">Submit</button>
+  </div>
+  <!-- {{authForm.errors | json}} -->
+</form>
