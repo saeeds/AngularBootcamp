@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <h4>Internal Server Error - refresing the page will make the exception disappear</h4>
+  <p class="font-weight-bold">Note: if you are seeing this then Angular is propably not resposible</p>
+  <p>what to do next?</p>
+  <ol>
+    <li>Open chrome dev tools</li>
+    <li>inspect the network tab</li>
+    <li>check the failing request</li>
+    <li>Examine the request URL - make sure this is correct</li>
+    <li>Reproduce the error in postman - if we the same response in postman, then the issue is NOT with Angular</li>
+  </ol>
+  <p>Following is the stack trace - this is where your invsitagtion shuld start!</p>
+  <code class="mt-5" style="background-color: whitesmoke;">{{error.details}}</code>
+</div>
