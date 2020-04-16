@@ -6,6 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Core.Entities.Identity;
+using Infrastructure.Identity;
+
 namespace API
 {
   public class Program
@@ -22,6 +26,11 @@ namespace API
           var context = services.GetRequiredService<StoreContext>();
           await context.Database.MigrateAsync();
           await StoreContextSeed.SeedAsync(context, loggerFactory);
+
+          var userManager = services.GetRequiredService<UserManager<AppUser>>();
+          var identityDbContext = services.GetRequiredService<AppIdentityDbContext>();
+          await identityDbContext.Database.MigrateAsync();
+          await AppIdentityDbContextSeed.SeedUserAsync(userManager);
         }
         catch (Exception ex)
         {
